@@ -1,0 +1,28 @@
+import random
+
+def run_quiz():
+    questions = {
+        "What is the capital of France?": "Paris",
+        "What is the largest planet in our solar system?": "Jupiter",
+        "Who painted the Mona Lisa?": "Leonardo da Vinci",
+        "What is the chemical symbol for water?": "H2O",
+        "What is the speed of light in a vacuum?": "299792458 m/s"
+    }
+    
+    num_questions = 3
+    score = 0
+    
+    selected_questions = random.sample(list(questions.items()), num_questions)
+    
+    for question, answer in selected_questions:
+        user_answer = input(f"{question} ").strip()
+        if user_answer.lower() == answer.lower():
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Incorrect. The correct answer is {answer}.")
+            
+    print(f"\nQuiz completed! You got {score}/{num_questions} questions correct.")
+
+if _name_ == "_main_":
+    run_quiz()
